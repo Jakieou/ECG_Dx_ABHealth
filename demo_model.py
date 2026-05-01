@@ -1,3 +1,4 @@
+
 import numpy as np
 from tensorflow import keras
 import pandas as pd
@@ -137,7 +138,7 @@ def get_model_agsx(n_classes, last_layer='sigmoid',dropout_keep=0.8):
     x = Flatten()(x)
     
     # Add tabular features here
-    agsx = Input(shape=(2), dtype=np.float32, name='agsx')
+    agsx = Input(shape=(2,), dtype=np.float32, name='agsx')
     x_agsx = Dense(10)(agsx)
     concat = tf.keras.layers.Concatenate()([x, x_agsx])
     
